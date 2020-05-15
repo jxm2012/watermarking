@@ -1,0 +1,72 @@
+<!--
+
+
+	basic html webpage needed to display the watermaking implementation 
+
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Watermarker</title>
+	<meta name="description" content="Watermark Generator" />
+	<meta name="viewport" content="width=device-width" />
+	<link rel="stylesheet" href="static/main.css" />
+	<script type="text/javascript" src="static/main.js"></script>
+</head>
+<body>
+	<header id="header">
+		<div class="row">
+			<div class="logo-icon">
+			</div>
+			<div class="page-header">
+				Watermarker
+			</div>
+		</div>
+	</header>
+	<main id="body">
+		<div class="row">
+			<div class="page-container">
+				<div class="center-pane">
+					<div class="row center">
+						<div class="">
+							<h5 class="head message-box">A simple tool to add watermark to images on web</h5>
+						</div>
+					</div>
+					<form id="wmk-form" class="" name="wmk-form" action="/upload" method="POST" onsubmit="submitHandler(event)" enctype=multipart/form-data>
+						<div class="input-container">
+							<div class="input-section original">
+								<span class="message-box">Pick the</span>
+								<label class="input-btn org" for="originalImage">Image</label>
+								<span class="message-box"> to be watermarked</span>
+								<input required class="hidden" type="file" id="originalImage" onchange="displayName(this, 'imgFileId')" name="originalImage" accept="image/png, image/jpeg">
+								<div id="imgFileId" class="filename"></div>
+							</div>
+							<div class="input-section watermark">
+								<span class="message-box">Pick the</span>
+								<label class="input-btn wmk" for="watermark">Watermark</label>
+								<span class="message-box"> image</span>
+								<input required class="hidden" type="file" onchange="displayName(this, 'wmkFileId')" id="watermark" name="watermark" accept="image/png, image/jpeg">
+								<div id="wmkFileId" class="filename"></div>
+							</div>
+						</div>
+						<div class="action-section">
+							<button class="submit-btn" type="submit" name="submit">Add Watermark</button>
+						</div>
+					</form>
+					<div class="output-section hidden">
+						<div class="message-box">Image with watermark:</div>
+						<img id="outputImg" src="" />
+						<div class="action-section">
+							<button id="tryAnother" onclick="tryAnother()" class="input-btn" >Try Another</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>
